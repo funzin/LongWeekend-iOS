@@ -1,0 +1,17 @@
+default_platform(:ios)
+
+platform :ios do
+  desc "Upload appstore after test"
+  lane :release_after_test do
+    scan
+    release
+  end
+  
+  desc "Upload appstore"
+  lane :release do
+    increment_build_number
+    build_app()
+    upload_to_app_store(force: true)
+  end
+end
+

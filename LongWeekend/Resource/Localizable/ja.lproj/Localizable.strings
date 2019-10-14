@@ -1,0 +1,27 @@
+/* 
+  Localizable.strings
+  LongWeekend
+
+  Created by funzin on 2019/10/26.
+  
+*/
+
+"longWeekend" = "連休";
+"days" = "日間";
+"holidayPeriod" = "休日期間";
+"paidDays" = "有給・代休使用日";
+"numberOfPaidDays" = "有給・代休消化日数";
+"minimumNumberOfHolidays" = "最低休日数";
+"nationalHoliday" = "祝日";
+"unspecified" = "指定なし";
+"containsNationalHoliday" = "祝日を含む";
+"notContainNationalHoliday" = "祝日を含まない";
+"sortCriteria" = "並び替え基準";
+"numberOfHolidays" = "休日数";
+"date" = "日付";
+"fromDate" = "from";
+"toDate" = "to";
+"setting" = "設定";
+"save" = "Save";
+"savedSetting" = "保存が完了しました。";
+"close" = "閉じる";

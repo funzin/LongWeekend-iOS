@@ -1,0 +1,6 @@
+strings:
+  inputs: 
+  - LongWeekend/Resource/Localizable/en.lproj/Localizable.strings
+  outputs:
+    templateName: structured-swift4
+    output: LongWeekend/Source/Generated/Strings.swift

@@ -1,0 +1,27 @@
+/* 
+  Localizable.strings
+  LongWeekend
+
+  Created by funzin on 2019/10/26.
+  
+*/
+
+"longWeekend" = "LongWeekend";
+"days" = "Days";
+"holidayPeriod" = "Holiday period";
+"paidDays" = "Paid days";
+"numberOfPaidDays" = "Number of paid days";
+"minimumNumberOfHolidays" = "Minimum number of holidays";
+"nationalHoliday" = "National holiday";
+"unspecified" = "Unspecified";
+"containsNationalHoliday" = "Contains nationalholiday";
+"notContainNationalHoliday" = "Not contain nationalholiday";
+"sortCriteria" = "Sort criteria";
+"numberOfHolidays" = "Number of holidays";
+"date" = "Date";
+"fromDate" = "from";
+"toDate" = "to";
+"setting" = "Setting";
+"save" = "Save";
+"savedSetting" = "Saved!";
+"close" = "Close";

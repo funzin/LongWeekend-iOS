@@ -1,0 +1,9 @@
+// Generated using xcconfig-extractor 0.6.0 by Toshihiro Suzuki - https://github.com/toshi0383/xcconfig-extractor
+TEST_HOST = $(BUILT_PRODUCTS_DIR)/LongWeekend.app/LongWeekend
+ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES
+PRODUCT_BUNDLE_IDENTIFIER = com.funzin.LongWeekendTests
+LD_RUNPATH_SEARCH_PATHS = $(inherited) @executable_path/Frameworks @loader_path/Frameworks
+IPHONEOS_DEPLOYMENT_TARGET = 13.0
+BUNDLE_LOADER = $(TEST_HOST)
+INFOPLIST_FILE = LongWeekendTests/Info.plist
+
