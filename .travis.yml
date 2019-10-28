@@ -4,7 +4,7 @@ xcode_workspace: LongWeekend.xcworkspace
 xcode_scheme: LongWeekend
 xcode_sdk: iphonesimulator
 before_install:
-  - /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  - brew update
   - brew install xcodegen
   - make bootstrap
 before_script:
