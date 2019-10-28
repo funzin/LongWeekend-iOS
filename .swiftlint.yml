@@ -6,6 +6,10 @@ disabled_rules:
 - nesting
 - multiple_closures_with_trailing_closure
 
+included:
+- LongWeekend
+- LongWeekendTests
+
 excluded:
 - Pods/
 - Carthage/
@@ -14,11 +18,3 @@ excluded:
 line_length: 300
 
 cyclomatic_complexity: 15
-
-variable_name:
-  max_length:
-    warning: 60
-    error: 80
-  min_length:
-    warning: 1
-    error: 0

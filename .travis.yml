@@ -1,0 +1,17 @@
+language: objective-c
+osx_image: xcode11.1
+xcode_workspace: LongWeekend.xcworkspace
+xcode_scheme: LongWeekend
+xcode_sdk: iphonesimulator
+before_install:
+  - brew update
+  - brew install xcodegen
+  - make bootstrap
+before_script:
+  - set -o pipefail
+script:
+  - xcodebuild -workspace LongWeekend.xcworkspace -scheme LongWeekend -configuration Debug -sdk iphonesimulator -destination 'platform=iOS Simulator,OS=13.1,name=iPhone 11 Pro' test | xcpretty -c 
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
+notifications:
+  email: false
