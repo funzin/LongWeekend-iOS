@@ -1,8 +1,16 @@
+# LongWeekend-iOS
+
 <p align="center">
     <img src="./Resource/Design/banner.png" alt="LongWeekend" width="40%" height="40%" />
 </p>
 
 <p align="center">
+  <a href=https://travis-ci.com/funzin/LongWeekend-iOS>
+    <img src=https://travis-ci.com/funzin/LongWeekend-iOS.svg?branch=master />
+  </a>
+  <a href=https://codecov.io/gh/funzin/LongWeekend-iOS>
+    <img src=https://codecov.io/gh/funzin/LongWeekend-iOS/branch/master/graph/badge.svg>
+  </a>
   <img src="http://img.shields.io/badge/platform-iOS-blue.svg?style=flat" alt="Platform" />
   <a href="https://developer.apple.com/swift">
     <img src="http://img.shields.io/badge/Swift-5.0-brightgreen.svg?style=flat" alt="Language">
