@@ -44,6 +44,7 @@ targets:
                   $plistBuddy -c "Set :GADApplicationIdentifier ${GAD_APPLICATION_ID}" ${infoPlistFileDestination}
                 fi
     scheme:
+      gatherCoverageData: true
       testTargets:
         - LongWeekendTests
   LongWeekendTests:
