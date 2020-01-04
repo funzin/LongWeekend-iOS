@@ -1,12 +1,12 @@
 name: LongWeekend
 options:
   bundleIdPrefix: com.funzin
+  deploymentTarget:
+    iOS: 13.0
 targets:
   LongWeekend:
     type: application
     platform: iOS
-    deploymentTarget:
-      iOS:  "13.0"
     sources: [LongWeekend]
     settings:
       base:
