@@ -1,9 +1,6 @@
 name: LongWeekend
 options:
   bundleIdPrefix: com.funzin
-configFiles:
-  Debug: Configurations/Debug.xcconfig
-  Release: Configurations/Release.xcconfig
 targets:
   LongWeekend:
     type: application
@@ -15,9 +12,6 @@ targets:
       base:
         INFOPLIST_FILE: LongWeekend/Resource/Info.plist
         CODE_SIGN_STYLE: Manual
-    configFiles:
-      Debug: Configurations/LongWeekend-Debug.xcconfig
-      Release: Configurations/LongWeekend-Release.xcconfig
     dependencies:
       - carthage: SwiftyUserDefaults
     prebuildScripts:
@@ -53,6 +47,3 @@ targets:
     sources: [LongWeekendTests]
     dependencies:
       - target: LongWeekend
-    configFiles:
-      Debug: Configurations/LongWeekendTests-Debug.xcconfig
-      Release: Configurations/LongWeekendTests-Release.xcconfig
