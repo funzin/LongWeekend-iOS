@@ -120,7 +120,7 @@ DerivedData/
 LongWeekend.xcworkspace
 LongWeekend.xcodeproj
 
-vender/
+vendor/
 .bundle/
 GoogleService-Info.plist
 Pods/
