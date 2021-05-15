@@ -12,7 +12,7 @@ target 'LongWeekend' do
   use_frameworks!
 
   # Pods for LongWeekend
-  pod 'SwiftLint', '~> 0.35.0'
+  pod 'SwiftLint', '~> 0.43.0'
   pod 'Firebase/Analytics', '~> 6.10.0'
   pod 'Firebase/AdMob', '~> 6.10.0'
   pod 'LicensePlist', '~> 2.8.1'
