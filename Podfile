@@ -13,8 +13,8 @@ target 'LongWeekend' do
 
   # Pods for LongWeekend
   pod 'SwiftLint', '~> 0.35.0'
-  pod 'Firebase/Analytics', '~> 6.10.0'
-  pod 'Firebase/AdMob', '~> 6.10.0'
+  pod 'Firebase/Analytics', '~> 6.34.0'
+  pod 'Firebase/AdMob', '~> 6.34.0'
   pod 'LicensePlist', '~> 2.8.1'
   pod 'HolidayJp', '~> 0.2.1'
   pod 'SwiftGen', '~> 6.1.0'
