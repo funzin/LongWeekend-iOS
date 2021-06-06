@@ -8,25 +8,21 @@ else
 endif
 
 
-bootstrap: install-gems xcodegen set-pods-keys install-pod install-carthage
+bootstrap: install-gems xcodegen set-pods-keys install-pod
 execute-xcodegen-and-pod: xcodegen install-pod
 
 # cocoapods
 install-pod:
 	bundle exec pod install --repo-update
 
-# carthage
-install-carthage:
-	bundle exec carthage update --platform iOS
-
 # gem
 install-gems:
-	rm -rf vender/
-	sudo gem install -N bundler --force
-	bundle install --path vender/bundle
+	rm -rf vendor/
+	gem install -N bundler
+	bundle install
 
 xcodegen:
-	xcodegen generate
+	swift run --package-path CLI/_xcodegen -c release xcodegen 
 
 set-pods-keys:
 	bundle exec pod keys set "AdUnitID" ${AD_UNIT_ID} LongWeekend
