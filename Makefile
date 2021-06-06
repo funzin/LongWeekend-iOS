@@ -21,9 +21,9 @@ install-carthage:
 
 # gem
 install-gems:
-	rm -rf vender/
-	sudo gem install -N bundler --force
-	bundle install --path vender/bundle
+	rm -rf vendor/
+	gem install -N bundler
+	bundle install
 
 xcodegen:
 	xcodegen generate

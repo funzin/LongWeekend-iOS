@@ -121,7 +121,6 @@ LongWeekend.xcworkspace
 LongWeekend.xcodeproj
 
 vendor/
-.bundle/
 GoogleService-Info.plist
 Pods/
 Carthage/
