@@ -29,6 +29,7 @@ targets:
         product: FirebaseAnalytics
     settings:
       base:
+        EXCLUDED_ARCHS[sdk=iphonesimulator*]: arm64
         INFOPLIST_FILE: LongWeekend/Resource/Info.plist
         CODE_SIGN_STYLE: Manual
     prebuildScripts:
