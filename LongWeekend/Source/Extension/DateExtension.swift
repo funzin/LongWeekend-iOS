@@ -8,7 +8,6 @@
 import Foundation
 
 extension Date {
-
     /// remove timestamp from date
     ///
     /// e.g 2018/01/01 10:00 → 2018/01/01 00:00

@@ -17,7 +17,6 @@ struct LongWeekendModel: Equatable, Identifiable {
 }
 
 extension LongWeekendModel {
-
     func equalWithoutID(_ longWeekend: LongWeekendModel) -> Bool {
         return paidDays == longWeekend.paidDays
             && firstDate == longWeekend.firstDate

@@ -6,25 +6,23 @@
 //  Copyright © 2019 funzin. All rights reserved.
 //
 
-import XCTest
 @testable import LongWeekend
+import XCTest
 
 class LongWeekendCalcuratorTests: XCTestCase {
-
     var dateManeger: DateManager!
     var longWeekendCalcurator: LongWeekendCalcurator!
 
     override func setUp() {
         let calendar = Calendar(identifier: .gregorian)
-        self.dateManeger = DateManager(calendar: calendar, formatter: DateManager.Formatter.holidayJpformatter)
-        self.longWeekendCalcurator = LongWeekendCalcurator(calendar: calendar,
-                                                           dateManager: dateManeger)
+        dateManeger = DateManager(calendar: calendar, formatter: DateManager.Formatter.holidayJpformatter)
+        longWeekendCalcurator = LongWeekendCalcurator(calendar: calendar,
+                                                      dateManager: dateManeger)
     }
 
     override func tearDown() {}
 
     func test_createLongWeekends() {
-
         struct Input {
             let from: String
             let to: String

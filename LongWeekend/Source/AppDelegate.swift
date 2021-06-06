@@ -9,16 +9,15 @@
 import UIKit
 
 #if Release
-import Firebase
+    import Firebase
 #endif
 import GoogleMobileAds
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         #if Release
-        FirebaseApp.configure()
+            FirebaseApp.configure()
         #endif
 
         UITableView.appearance().tableFooterView = UIView()

@@ -5,8 +5,8 @@
 //  Created by funzin on 2019/10/21.
 //
 
-import SwiftUI
 import GoogleMobileAds
+import SwiftUI
 
 struct LongWeekendList: View {
     @ObservedObject var viewModel: LongWeekendListViewModel
@@ -30,11 +30,11 @@ struct LongWeekendList: View {
                     }
                     .sheet(isPresented: $isPresented,
                            content: {
-                            SettingView()
-                                .onDisappear(perform: {
-                                    self.viewModel.loadLongWeekend()
-                                })
-                    })
+                               SettingView()
+                                   .onDisappear(perform: {
+                                       self.viewModel.loadLongWeekend()
+                                   })
+                           })
                 }
             )
         }

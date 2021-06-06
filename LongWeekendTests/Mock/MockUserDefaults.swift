@@ -23,7 +23,7 @@ class MockUserDefautls: UserDefaultsProtocol {
 
     subscript(key: DefaultsKey<Int>) -> Int {
         get {
-             return dict[key._key] as? Int ?? 0
+            return dict[key._key] as? Int ?? 0
         }
         set(newValue) {
             dict[key._key] = newValue
@@ -35,7 +35,7 @@ class MockUserDefautls: UserDefaultsProtocol {
             return dict[key._key] as? Date ?? Date()
         }
         set(newValue) {
-             dict[key._key] = newValue
+            dict[key._key] = newValue
         }
     }
 
@@ -44,7 +44,7 @@ class MockUserDefautls: UserDefaultsProtocol {
             return dict[key._key] as? NationalHolidaySegment ?? .undefined
         }
         set(newValue) {
-             dict[key._key] = newValue
+            dict[key._key] = newValue
         }
     }
 
@@ -53,7 +53,7 @@ class MockUserDefautls: UserDefaultsProtocol {
             return dict[key._key] as? SortCriteriaSegment ?? .date
         }
         set(newValue) {
-             dict[key._key] = newValue
+            dict[key._key] = newValue
         }
     }
 }

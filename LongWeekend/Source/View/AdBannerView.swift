@@ -6,14 +6,12 @@
 //
 
 import Foundation
-import SwiftUI
 import GoogleMobileAds
 import Keys
+import SwiftUI
 
 struct AdBannerViewController: UIViewControllerRepresentable {
-
     func makeUIViewController(context: Context) -> UIViewController {
-
         let adBannerView = GADBannerView(adSize: kGADAdSizeBanner)
         let viewController = UIViewController()
         adBannerView.adUnitID = LongWeekendKeys().adUnitID
@@ -25,12 +23,10 @@ struct AdBannerViewController: UIViewControllerRepresentable {
         return viewController
     }
 
-    func updateUIViewController(_ uiViewController: UIViewController, context: UIViewControllerRepresentableContext<AdBannerViewController>) {
-    }
+    func updateUIViewController(_ uiViewController: UIViewController, context: UIViewControllerRepresentableContext<AdBannerViewController>) {}
 }
 
 extension AdBannerViewController {
-
     static var bannerSize: CGSize {
         switch UIDevice.current.userInterfaceIdiom {
         case .phone:
