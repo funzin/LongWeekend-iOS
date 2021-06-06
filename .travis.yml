@@ -4,8 +4,6 @@ xcode_workspace: LongWeekend.xcworkspace
 xcode_scheme: LongWeekend
 xcode_sdk: iphonesimulator
 before_install:
-  - brew update
-  - brew install xcodegen
   - make bootstrap
 before_script:
   - set -o pipefail

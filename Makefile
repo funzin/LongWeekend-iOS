@@ -26,7 +26,7 @@ install-gems:
 	bundle install
 
 xcodegen:
-	xcodegen generate
+	swift run --package-path CLI/_xcodegen -c release xcodegen 
 
 set-pods-keys:
 	bundle exec pod keys set "AdUnitID" ${AD_UNIT_ID} LongWeekend
