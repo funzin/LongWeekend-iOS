@@ -12,10 +12,7 @@ target 'LongWeekend' do
   use_frameworks!
 
   # Pods for LongWeekend
-  pod 'Firebase/Analytics', '~> 6.10.0'
-  pod 'Firebase/AdMob', '~> 6.10.0'
-  pod 'HolidayJp', '~> 0.2.1'
-  pod 'SwiftyUserDefaults', '~> 4.0.0'
+  pod 'Google-Mobile-Ads-SDK', '8.5.0'
 
   target 'LongWeekendTests' do
     inherit! :search_paths
