@@ -29,9 +29,14 @@ targets:
         product: FirebaseAnalytics
     settings:
       base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.funzin.longweekend
+        MARKETING_VERSION: 2.0.0
         EXCLUDED_ARCHS[sdk=iphonesimulator*]: arm64
+        CURRENT_PROJECT_VERSION: 1
+        VERSIONING_SYSTEM: apple-generic
         INFOPLIST_FILE: LongWeekend/Resource/Info.plist
         CODE_SIGN_STYLE: Manual
+        INFOPLIST_PREPROCESS: YES
     prebuildScripts:
       - name: Run swiftformat
         script: make swiftformat
@@ -49,7 +54,10 @@ targets:
                 envPath="${SRCROOT}/.env"
                 if [ -e $envPath ]; then
                   . $envPath
-                  $plistBuddy -c "Set :GADApplicationIdentifier ${GAD_APPLICATION_ID}" ${infoPlistFileDestination}
+                  identifier=${GAD_APPLICATION_ID}
+                  echo ${infoPlistFileDestination}
+                  echo ${identifier}
+                  $plistBuddy -c "Set :GADApplicationIdentifier ${identifier}" ${infoPlistFileDestination}
                 fi
     postbuildScripts:
       - name: Run SwiftLint
