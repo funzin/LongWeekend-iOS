@@ -18,24 +18,24 @@ final class SettingViewModel: ObservableObject {
     @Published var paidDaysCount: Int
     @Published var minimumNumberOfHolidays: Int
 
-    private var userDefaults: UserDefaultsProtocol
-    init(userDefaults: UserDefaultsProtocol = UserDefaults.standard) {
-        self.fromDate = userDefaults[.fromDate]
-        self.toDate = userDefaults[.toDate]
-        self.nationalHolidaySegment = userDefaults[.nationalHolidaySegment]
-        self.sortCriteriaSegment = userDefaults[.sortCriteriaSegment]
-        self.paidDaysCount = userDefaults[.paidDaysCount]
-        self.minimumNumberOfHolidays = userDefaults[.minimumNumberOfHolidays]
+    private let userDefaults: DefaultsAdapter<DefaultsKeys>
+    init(userDefaults: DefaultsAdapter<DefaultsKeys> = Defaults) {
+        self.fromDate = userDefaults.fromDate
+        self.toDate = userDefaults.toDate
+        self.nationalHolidaySegment = userDefaults.nationalHolidaySegment
+        self.sortCriteriaSegment = userDefaults.sortCriteriaSegment
+        self.paidDaysCount = userDefaults.paidDaysCount
+        self.minimumNumberOfHolidays = userDefaults.minimumNumberOfHolidays
 
         self.userDefaults = userDefaults
     }
 
     func save() {
-        userDefaults[.fromDate] = fromDate.removeTimestamp()
-        userDefaults[.toDate] = toDate.removeTimestamp()
-        userDefaults[.nationalHolidaySegment] = nationalHolidaySegment
-        userDefaults[.sortCriteriaSegment] = sortCriteriaSegment
-        userDefaults[.paidDaysCount] = paidDaysCount
-        userDefaults[.minimumNumberOfHolidays] = minimumNumberOfHolidays
+        userDefaults.fromDate = fromDate.removeTimestamp()
+        userDefaults.toDate = toDate.removeTimestamp()
+        userDefaults.nationalHolidaySegment = nationalHolidaySegment
+        userDefaults.sortCriteriaSegment = sortCriteriaSegment
+        userDefaults.paidDaysCount = paidDaysCount
+        userDefaults.minimumNumberOfHolidays = minimumNumberOfHolidays
     }
 }

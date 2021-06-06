@@ -35,7 +35,7 @@ extension AdBannerViewController {
         case .pad:
             return CGSize(width: kGADAdSizeLargeBanner.size.width,
                           height: kGADAdSizeLargeBanner.size.height)
-        case .unspecified, .tv, .carPlay:
+        case .unspecified, .tv, .carPlay, .mac:
             return .zero
         @unknown default:
             return .zero
