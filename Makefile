@@ -34,5 +34,8 @@ license-plist:
 xcodegen:
 	swift run --package-path CLI/_xcodegen -c release xcodegen 
 
+swiftformat:
+	swift run --package-path CLI/_swiftformat -c release swiftformat ./
+
 set-pods-keys:
 	bundle exec pod keys set "AdUnitID" ${AD_UNIT_ID} LongWeekend

@@ -9,22 +9,19 @@ import XCTest
 
 @testable import LongWeekend
 class SettingViewModelTests: XCTestCase {
-
     var viewModel: SettingViewModel!
     var mockUserDefaults: MockUserDefautls!
     var dateManager: DateManager!
 
     override func setUp() {
-        self.mockUserDefaults = MockUserDefautls()
-        self.viewModel = SettingViewModel(userDefaults: mockUserDefaults)
-        self.dateManager = DateManager(formatter: DateManager.Formatter.holidayJpformatter)
+        mockUserDefaults = MockUserDefautls()
+        viewModel = SettingViewModel(userDefaults: mockUserDefaults)
+        dateManager = DateManager(formatter: DateManager.Formatter.holidayJpformatter)
     }
 
-    override func tearDown() {
-    }
+    override func tearDown() {}
 
     func test_init() {
-
         let fromDate = dateManager.date(from: "2018-01-01")
         let toDate = dateManager.date(from: "2018-01-10")
         let nationalHolidaySegment = NationalHolidaySegment.containsNationalHoliday
@@ -39,7 +36,7 @@ class SettingViewModelTests: XCTestCase {
         mockUserDefaults[.paidDaysCount] = paidDaysCount
         mockUserDefaults[.minimumNumberOfHolidays] = minimumNumberOfHolidays
 
-        self.viewModel = SettingViewModel(userDefaults: mockUserDefaults)
+        viewModel = SettingViewModel(userDefaults: mockUserDefaults)
 
         XCTAssertEqual(viewModel.fromDate, fromDate)
         XCTAssertEqual(viewModel.toDate, toDate)
@@ -49,7 +46,6 @@ class SettingViewModelTests: XCTestCase {
     }
 
     func test_save() {
-
         let fromDate = dateManager.date(from: "2018-01-01")
         let toDate = dateManager.date(from: "2018-01-10")
         let nationalHolidaySegment = NationalHolidaySegment.containsNationalHoliday

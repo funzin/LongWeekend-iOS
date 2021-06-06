@@ -10,7 +10,6 @@ import Foundation
 import SwiftUI
 
 final class LongWeekendListViewModel: ObservableObject {
-
     typealias SaveDataType = (NationalHolidaySegment, SortCriteriaSegment, Int, Int, Date, Date)
 
     @Published private(set) var longWeekends: [LongWeekendModel] = []
@@ -21,7 +20,6 @@ final class LongWeekendListViewModel: ObservableObject {
 
     init(userDefaults: UserDefaultsProtocol = UserDefaults.standard,
          longWeekendCalcurator: LongWeekendCalcurator = LongWeekendCalcurator.shared) {
-
         self.userDefaults = userDefaults
         do {
             _loadLongWeekends
@@ -33,39 +31,39 @@ final class LongWeekendListViewModel: ObservableObject {
                     let fromDate = userDefaults[.fromDate]
                     let toDate = userDefaults[.toDate]
                     return Just<SaveDataType>((nationalHolidaySegment, sortCriteriaSegment, paidDaysCount, minimumNumberOfHolidays, fromDate, toDate))
-            }
-            .removeDuplicates { (prev, current) -> Bool in
-                prev == current
-            }
-            .map { (nationalHolidaySegment, sortCriteriaSegment, paidDaysCount, minimumNumberOfHolidays, fromDate, toDate) -> [LongWeekendModel] in
-                let longWeekends = longWeekendCalcurator.createLongWeekends(paidDaysCount: paidDaysCount,
-                                                                            from: fromDate,
-                                                                            to: toDate)
-                    .lazy
-                    .filter { $0.numberOfHolidays >= minimumNumberOfHolidays }
-                    .filter {
-                        switch nationalHolidaySegment {
-                        case .undefined: return true
-                        case .containsNationalHoliday: return $0.containsNationalHoliday
-                        case .notContainNationalHoliday: return !$0.containsNationalHoliday
-                        }
-                    }
-                    .sorted {
-                        switch sortCriteriaSegment {
-                        case .date:
-                            return $0.firstDate < $1.firstDate
-                        case .numberOfHolidays:
-                            if $0.numberOfHolidays == $1.numberOfHolidays {
-                                return $0.firstDate < $1.firstDate
+                }
+                .removeDuplicates { prev, current -> Bool in
+                    prev == current
+                }
+                .map { nationalHolidaySegment, sortCriteriaSegment, paidDaysCount, minimumNumberOfHolidays, fromDate, toDate -> [LongWeekendModel] in
+                    let longWeekends = longWeekendCalcurator.createLongWeekends(paidDaysCount: paidDaysCount,
+                                                                                from: fromDate,
+                                                                                to: toDate)
+                        .lazy
+                        .filter { $0.numberOfHolidays >= minimumNumberOfHolidays }
+                        .filter {
+                            switch nationalHolidaySegment {
+                            case .undefined: return true
+                            case .containsNationalHoliday: return $0.containsNationalHoliday
+                            case .notContainNationalHoliday: return !$0.containsNationalHoliday
                             }
-                            return $0.numberOfHolidays > $1.numberOfHolidays
                         }
-                    }
+                        .sorted {
+                            switch sortCriteriaSegment {
+                            case .date:
+                                return $0.firstDate < $1.firstDate
+                            case .numberOfHolidays:
+                                if $0.numberOfHolidays == $1.numberOfHolidays {
+                                    return $0.firstDate < $1.firstDate
+                                }
+                                return $0.numberOfHolidays > $1.numberOfHolidays
+                            }
+                        }
                     return longWeekends
                 }
                 .assign(to: \.longWeekends, on: self)
                 .store(in: &cancellables)
-            }
+        }
     }
 
     func loadLongWeekend() {

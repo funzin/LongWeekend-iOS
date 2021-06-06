@@ -21,12 +21,10 @@ struct LongWeekendCalcurator {
 }
 
 extension LongWeekendCalcurator {
-
     /// create longweekends
     func createLongWeekends(paidDaysCount: Int,
                             from: Date,
                             to: Date) -> [LongWeekendModel] {
-
         let allDays = dateManager.makeAllDays(from: from, to: to)
         let weekends = dateManager.extractWeekends(from: allDays)
         let nationalHolidays = dateManager.makeNationalHolidays(from: from, to: to)
@@ -36,7 +34,6 @@ extension LongWeekendCalcurator {
 
         var longWeekends = [LongWeekendModel]()
         for (i, holidays) in holidaysArray.enumerated() {
-
             // extract weekdays before and after holidays
             let prevWeekdays = weekdays.filter { weekday in
                 guard let holidaysFirst = holidays.first else { return false }
@@ -55,19 +52,18 @@ extension LongWeekendCalcurator {
 
             let lastIndex = prevAndNextWeekdays.endIndex - paidDaysCount < 0 ? 0 : prevAndNextWeekdays.endIndex - paidDaysCount
 
-            for day in prevAndNextWeekdays[0...lastIndex] {
-
+            for day in prevAndNextWeekdays[0 ... lastIndex] {
                 //　determine the paid days
                 let paidDays = Array(prevAndNextWeekdays.filter { day <= $0 }.prefix(paidDaysCount))
                 guard let firstPaidDay = paidDays.first,
-                    let lastPaidDay = paidDays.last else { continue }
+                      let lastPaidDay = paidDays.last else { continue }
 
                 let firstDate: Date
                 if prevWeekdays.contains(firstPaidDay) {
                     // connect if the previous day is holiday
                     if let previousDay = calendar.date(byAdding: .day, value: -1, to: firstPaidDay),
-                        allHolidays.contains(previousDay) && i != 0,
-                        let prevHolidaysFirst = holidaysArray[i - 1].first {
+                       allHolidays.contains(previousDay), i != 0,
+                       let prevHolidaysFirst = holidaysArray[i - 1].first {
                         firstDate = prevHolidaysFirst
                     } else {
                         firstDate = firstPaidDay
@@ -81,8 +77,8 @@ extension LongWeekendCalcurator {
                 if nextWeekdays.contains(lastPaidDay) {
                     // connect if the next day is holiday
                     if let nextDay = calendar.date(byAdding: .day, value: 1, to: lastPaidDay),
-                        allHolidays.contains(nextDay) && i != holidays.indices.last,
-                        let nextHolidaysLast = holidaysArray[i + 1].last {
+                       allHolidays.contains(nextDay), i != holidays.indices.last,
+                       let nextHolidaysLast = holidaysArray[i + 1].last {
                         lastDate = nextHolidaysLast
                     } else {
                         lastDate = lastPaidDay
@@ -96,7 +92,7 @@ extension LongWeekendCalcurator {
                 let numberOfHolidays = _numberOfHolidays + 1
 
                 // whether include nationalHoliday
-                let containsNationalHoliday = !(0..<numberOfHolidays)
+                let containsNationalHoliday = !(0 ..< numberOfHolidays)
                     .compactMap { calendar.date(byAdding: .day, value: $0, to: firstDate) }
                     .filter { nationalHolidays.contains($0) }.isEmpty
                 let longweekend = LongWeekendModel(paidDays: paidDays,

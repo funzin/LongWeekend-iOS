@@ -13,12 +13,11 @@ class DateManagerTests: XCTestCase {
 
     override func setUp() {
         let calendar = Calendar(identifier: .gregorian)
-        self.dateManager = DateManager(calendar: calendar,
-                                       formatter: DateManager.Formatter.holidayJpformatter)
+        dateManager = DateManager(calendar: calendar,
+                                  formatter: DateManager.Formatter.holidayJpformatter)
     }
 
-    override func tearDown() {
-    }
+    override func tearDown() {}
 
     func test_makeAllDays() {
         struct Input {
@@ -80,12 +79,11 @@ class DateManagerTests: XCTestCase {
         let holidaysArray = dateManager.createHolidaysArray(holidays: ["2018-01-01",
                                                                        "2018-01-06", "2018-01-07",
                                                                        "2018-01-08", "2018-01-13", "2018-01-14"]
-            .map { dateManager.date(from: $0) })
+                .map { dateManager.date(from: $0) })
 
         XCTAssertEqual(holidaysArray.count, 3)
         XCTAssertEqual(holidaysArray[0], ["2018-01-01"].map { dateManager.date(from: $0) })
         XCTAssertEqual(holidaysArray[1], ["2018-01-06", "2018-01-07", "2018-01-08"].map { dateManager.date(from: $0) })
         XCTAssertEqual(holidaysArray[2], ["2018-01-13", "2018-01-14"].map { dateManager.date(from: $0) })
     }
-
 }

@@ -9,7 +9,6 @@
 import SwiftUI
 
 struct SettingView: View {
-
     @Environment(\.presentationMode) var presentation
     @ObservedObject(initialValue: SettingViewModel()) var viewModel: SettingViewModel
     @State private var isPresented = false
@@ -18,11 +17,11 @@ struct SettingView: View {
         NavigationView {
             List {
                 Section(header: Text(L10n.numberOfPaidDays)) {
-                    Stepper(value: $viewModel.paidDaysCount, in: 1...100, label: { Text("\(viewModel.paidDaysCount)\(L10n.days)")})
+                    Stepper(value: $viewModel.paidDaysCount, in: 1 ... 100, label: { Text("\(viewModel.paidDaysCount)\(L10n.days)") })
                 }
                 .padding(10)
                 Section(header: Text(L10n.minimumNumberOfHolidays)) {
-                    Stepper(value: $viewModel.minimumNumberOfHolidays, in: 3...100, label: { Text("\(viewModel.minimumNumberOfHolidays)\(L10n.days)")})
+                    Stepper(value: $viewModel.minimumNumberOfHolidays, in: 3 ... 100, label: { Text("\(viewModel.minimumNumberOfHolidays)\(L10n.days)") })
                 }
                 .padding(10)
                 Section(header: Text(L10n.nationalHoliday)) {

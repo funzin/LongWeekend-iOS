@@ -15,10 +15,8 @@ targets:
         INFOPLIST_FILE: LongWeekend/Resource/Info.plist
         CODE_SIGN_STYLE: Manual
     prebuildScripts:
-      - name: Run SwiftGen
-        script: make swiftgen
-      - name: Run SwiftLint
-        script: make swiftlint
+      - name: Run swiftformat
+        script: make swiftformat
       - name: Run LicensPlist
         script: |
                 if [ $CONFIGURATION = "Debug" ]; then
@@ -35,6 +33,9 @@ targets:
                   . $envPath
                   $plistBuddy -c "Set :GADApplicationIdentifier ${GAD_APPLICATION_ID}" ${infoPlistFileDestination}
                 fi
+    postbuildScripts:
+      - name: Run SwiftLint
+        script: make swiftlint
     scheme:
       gatherCoverageData: true
       testTargets:

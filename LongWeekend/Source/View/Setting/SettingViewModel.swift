@@ -5,13 +5,12 @@
 //  Created by funzin on 2019/10/22.
 //
 
-import Foundation
 import Combine
+import Foundation
 import SwiftUI
 import SwiftyUserDefaults
 
 final class SettingViewModel: ObservableObject {
-
     @Published var fromDate: Date
     @Published var toDate: Date
     @Published var nationalHolidaySegment: NationalHolidaySegment
@@ -21,7 +20,6 @@ final class SettingViewModel: ObservableObject {
 
     private var userDefaults: UserDefaultsProtocol
     init(userDefaults: UserDefaultsProtocol = UserDefaults.standard) {
-
         self.fromDate = userDefaults[.fromDate]
         self.toDate = userDefaults[.toDate]
         self.nationalHolidaySegment = userDefaults[.nationalHolidaySegment]

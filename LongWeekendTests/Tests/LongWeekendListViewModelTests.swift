@@ -9,23 +9,20 @@ import XCTest
 
 @testable import LongWeekend
 class LongWeekendListViewModelTests: XCTestCase {
-
     var viewModel: LongWeekendListViewModel!
     var mockUserDefaults: MockUserDefautls!
     var dateManager: DateManager!
 
     override func setUp() {
-        self.mockUserDefaults = MockUserDefautls()
+        mockUserDefaults = MockUserDefautls()
         let calendar = Calendar(identifier: .gregorian)
-        self.dateManager = DateManager(calendar: calendar, formatter: DateManager.Formatter.holidayJpformatter)
+        dateManager = DateManager(calendar: calendar, formatter: DateManager.Formatter.holidayJpformatter)
         let longWeekendCalcurator = LongWeekendCalcurator(calendar: calendar, dateManager: dateManager)
-        self.viewModel = LongWeekendListViewModel(userDefaults: mockUserDefaults,
-                                                  longWeekendCalcurator: longWeekendCalcurator)
-
+        viewModel = LongWeekendListViewModel(userDefaults: mockUserDefaults,
+                                             longWeekendCalcurator: longWeekendCalcurator)
     }
 
-    override func tearDown() {
-    }
+    override func tearDown() {}
 
     func test_loadLongWeekend() {
         mockUserDefaults[.fromDate] = dateManager.date(from: "2018-05-02")
@@ -39,7 +36,6 @@ class LongWeekendListViewModelTests: XCTestCase {
     }
 
     func test_loadLongWeekend_minimumNumberOfHolidays() {
-
         struct Input {
             let minimumNumberOfHolidays: Int
             let nationalHolidaySegment: NationalHolidaySegment
@@ -59,13 +55,13 @@ class LongWeekendListViewModelTests: XCTestCase {
                   output: .init(isEmpty: true),
                   desc: "when minimumNumberOfHolidays is more than longWeekend.numberOfHolidays"),
             .init(input: .init(minimumNumberOfHolidays: 3,
-                                nationalHolidaySegment: .containsNationalHoliday),
-                   output: .init(isEmpty: false),
-                   desc: "when contains nationalHoliday"),
-             .init(input: .init(minimumNumberOfHolidays: 3,
-                                nationalHolidaySegment: .notContainNationalHoliday),
-                   output: .init(isEmpty: true),
-                   desc: "when not contain nationalHolida")
+                               nationalHolidaySegment: .containsNationalHoliday),
+                  output: .init(isEmpty: false),
+                  desc: "when contains nationalHoliday"),
+            .init(input: .init(minimumNumberOfHolidays: 3,
+                               nationalHolidaySegment: .notContainNationalHoliday),
+                  output: .init(isEmpty: true),
+                  desc: "when not contain nationalHolida")
         ]
 
         for testCase in testCases {
@@ -107,8 +103,7 @@ class LongWeekendListViewModelTests: XCTestCase {
                                                                 firstDate: dateManager.date(from: "2018-05-02"),
                                                                 lastDate: dateManager.date(from: "2018-05-05"),
                                                                 numberOfHolidays: 4,
-                                                                containsNationalHoliday: true)
-                  ]),
+                                                                containsNationalHoliday: true)]),
                   desc: "when sortCriteriaSegment is .date"),
             .init(input: .init(from: "2018-04-29",
                                to: "2018-05-05",
@@ -122,8 +117,7 @@ class LongWeekendListViewModelTests: XCTestCase {
                                                                 firstDate: dateManager.date(from: "2018-04-29"),
                                                                 lastDate: dateManager.date(from: "2018-05-01"),
                                                                 numberOfHolidays: 3,
-                                                                containsNationalHoliday: true)
-                  ]),
+                                                                containsNationalHoliday: true)]),
                   desc: "when sortCriteriaSegment is numberOfHolidays"),
             .init(input: .init(from: "2018-04-29",
                                to: "2018-05-04",
@@ -137,8 +131,7 @@ class LongWeekendListViewModelTests: XCTestCase {
                                                                 firstDate: dateManager.date(from: "2018-05-02"),
                                                                 lastDate: dateManager.date(from: "2018-05-04"),
                                                                 numberOfHolidays: 3,
-                                                                containsNationalHoliday: true)
-                  ]),
+                                                                containsNationalHoliday: true)]),
                   desc: "when sortCriteriaSegment is numberOfHolidays and numberOfHolidays is the same")
         ]
 
