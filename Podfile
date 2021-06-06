@@ -17,6 +17,7 @@ target 'LongWeekend' do
   pod 'Firebase/AdMob', '~> 6.10.0'
   pod 'LicensePlist', '~> 2.8.1'
   pod 'HolidayJp', '~> 0.2.1'
+  pod 'SwiftyUserDefaults', '~> 4.0.0'
   pod 'SwiftGen', '~> 6.1.0'
 
   target 'LongWeekendTests' do

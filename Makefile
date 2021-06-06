@@ -8,16 +8,12 @@ else
 endif
 
 
-bootstrap: install-gems xcodegen set-pods-keys install-pod install-carthage
+bootstrap: install-gems xcodegen set-pods-keys install-pod
 execute-xcodegen-and-pod: xcodegen install-pod
 
 # cocoapods
 install-pod:
 	bundle exec pod install --repo-update
-
-# carthage
-install-carthage:
-	bundle exec carthage update --platform iOS
 
 # gem
 install-gems:
