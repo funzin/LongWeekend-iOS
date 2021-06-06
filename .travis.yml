@@ -1,4 +1,9 @@
 language: objective-c
+cache:
+  bundler: true
+  cocoapods: true
+  directories:
+    - CLI
 osx_image: xcode12.5
 xcode_workspace: LongWeekend.xcworkspace
 xcode_scheme: LongWeekend
