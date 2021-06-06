@@ -74,6 +74,7 @@ PODS:
   - nanopb/encode (0.3.901)
   - SwiftGen (6.1.0)
   - SwiftLint (0.35.0)
+  - SwiftyUserDefaults (4.0.0)
 
 DEPENDENCIES:
   - Firebase/AdMob (~> 6.10.0)
@@ -83,6 +84,7 @@ DEPENDENCIES:
   - LicensePlist (~> 2.8.1)
   - SwiftGen (~> 6.1.0)
   - SwiftLint (~> 0.35.0)
+  - SwiftyUserDefaults (~> 4.0.0)
 
 SPEC REPOS:
   trunk:
@@ -102,6 +104,7 @@ SPEC REPOS:
     - nanopb
     - SwiftGen
     - SwiftLint
+    - SwiftyUserDefaults
 
 EXTERNAL SOURCES:
   Keys:
@@ -125,7 +128,8 @@ SPEC CHECKSUMS:
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   SwiftGen: f872ca75cbd17bf7103c17f13dcfa0d9a15667b0
   SwiftLint: 5553187048b900c91aa03552807681bb6b027846
+  SwiftyUserDefaults: 6a1951df1daa19337862b677dd9a4b9bd4c288cd
 
-PODFILE CHECKSUM: ba80852025c6edb9ba0ca158b1758850a83ab7e7
+PODFILE CHECKSUM: b0ba8d558065bae8696b3b74c7f5b3e07513890e
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.10.1
