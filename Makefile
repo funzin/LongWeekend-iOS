@@ -9,7 +9,7 @@ else
 endif
 
 
-bootstrap: install-gems xcodegen set-pods-keys install-pod
+bootstrap: install-gems set-pods-keys xcodegen
 execute-xcodegen-and-pod: xcodegen install-pod
 
 # cocoapods

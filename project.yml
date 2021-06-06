@@ -21,6 +21,8 @@ targets:
     platform: iOS
     sources: [LongWeekend]
     dependencies:
+      - sdk: AppTrackingTransparency.framework
+        weak: true
       - package: HolidayJp
       - package: SwiftyUserDefaults
       - package: Firebase

@@ -1,15 +1,20 @@
 language: objective-c
+cache:
+  bundler: true
+  cocoapods: true
+  directories:
+    - CLI
 osx_image: xcode12.5
 xcode_workspace: LongWeekend.xcworkspace
 xcode_scheme: LongWeekend
 xcode_sdk: iphonesimulator
 before_install:
-  - bundle update
+  - brew update
   - make bootstrap
 before_script:
   - set -o pipefail
 script:
-  - xcodebuild -workspace LongWeekend.xcworkspace -scheme LongWeekend -configuration Debug -sdk iphonesimulator -destination 'platform=iOS Simulator,OS=14.5,name=iPhone 12 Pro' test | xcpretty -c 
+  - xcodebuild -workspace LongWeekend.xcworkspace -scheme LongWeekend -configuration Debug -sdk iphonesimulator -destination 'platform=iOS Simulator,OS=14.5,name=iPhone 12 Pro' test
 after_success:
   - bash <(curl -s https://codecov.io/bash)
 notifications:
