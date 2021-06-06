@@ -9,7 +9,7 @@ before_install:
 before_script:
   - set -o pipefail
 script:
-  - xcodebuild -workspace LongWeekend.xcworkspace -scheme LongWeekend -configuration Debug -sdk iphonesimulator -destination 'platform=iOS Simulator,OS=14.5,name=iPhone 12 Pro' test | xcpretty -c 
+  - xcodebuild -workspace LongWeekend.xcworkspace -scheme LongWeekend -configuration Debug -sdk iphonesimulator -destination 'platform=iOS Simulator,OS=14.5,name=iPhone 12 Pro' test
 after_success:
   - bash <(curl -s https://codecov.io/bash)
 notifications:
