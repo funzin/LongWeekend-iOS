@@ -5,11 +5,26 @@ options:
   postGenCommand: make install-pod
   deploymentTarget:
     iOS: 13.0
+packages:
+  SwiftyUserDefaults:
+    url: https://github.com/sunshinejr/SwiftyUserDefaults
+    version: 5.3.0
+  HolidayJp:
+    url: https://github.com/holiday-jp/holiday_jp-swift
+    version: 0.2.1
+  Firebase:
+    url: https://github.com/firebase/firebase-ios-sdk
+    version: 8.0.0
 targets:
   LongWeekend:
     type: application
     platform: iOS
     sources: [LongWeekend]
+    dependencies:
+      - package: HolidayJp
+      - package: SwiftyUserDefaults
+      - package: Firebase
+        product: FirebaseAnalytics
     settings:
       base:
         INFOPLIST_FILE: LongWeekend/Resource/Info.plist

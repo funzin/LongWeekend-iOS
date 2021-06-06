@@ -5,16 +5,17 @@
 //  Created by funzin on 2019/10/27.
 //
 
+import SwiftyUserDefaults
 import XCTest
 
 @testable import LongWeekend
 class LongWeekendListViewModelTests: XCTestCase {
     var viewModel: LongWeekendListViewModel!
-    var mockUserDefaults: MockUserDefautls!
+    var mockUserDefaults: DefaultsAdapter<DefaultsKeys>!
     var dateManager: DateManager!
 
     override func setUp() {
-        mockUserDefaults = MockUserDefautls()
+        mockUserDefaults = DefaultsAdapter<DefaultsKeys>(defaults: UserDefaults(suiteName: "LongWeekendListViewModelTests")!, keyStore: .init())
         let calendar = Calendar(identifier: .gregorian)
         dateManager = DateManager(calendar: calendar, formatter: DateManager.Formatter.holidayJpformatter)
         let longWeekendCalcurator = LongWeekendCalcurator(calendar: calendar, dateManager: dateManager)
@@ -25,12 +26,12 @@ class LongWeekendListViewModelTests: XCTestCase {
     override func tearDown() {}
 
     func test_loadLongWeekend() {
-        mockUserDefaults[.fromDate] = dateManager.date(from: "2018-05-02")
-        mockUserDefaults[.toDate] = dateManager.date(from: "2018-05-04")
-        mockUserDefaults[.nationalHolidaySegment] = .undefined
-        mockUserDefaults[.sortCriteriaSegment] = .date
-        mockUserDefaults[.paidDaysCount] = 3
-        mockUserDefaults[.minimumNumberOfHolidays] = 3
+        mockUserDefaults.fromDate = dateManager.date(from: "2018-05-02")
+        mockUserDefaults.toDate = dateManager.date(from: "2018-05-04")
+        mockUserDefaults.nationalHolidaySegment = .undefined
+        mockUserDefaults.sortCriteriaSegment = .date
+        mockUserDefaults.paidDaysCount = 3
+        mockUserDefaults.minimumNumberOfHolidays = 3
         viewModel.loadLongWeekend()
         XCTAssertFalse(viewModel.longWeekends.isEmpty)
     }
@@ -66,12 +67,12 @@ class LongWeekendListViewModelTests: XCTestCase {
 
         for testCase in testCases {
             setUp()
-            mockUserDefaults[.fromDate] = dateManager.date(from: "2018-05-02")
-            mockUserDefaults[.toDate] = dateManager.date(from: "2018-05-04")
-            mockUserDefaults[.nationalHolidaySegment] = testCase.input.nationalHolidaySegment
-            mockUserDefaults[.sortCriteriaSegment] = .date
-            mockUserDefaults[.paidDaysCount] = 1
-            mockUserDefaults[.minimumNumberOfHolidays] = testCase.input.minimumNumberOfHolidays
+            mockUserDefaults.fromDate = dateManager.date(from: "2018-05-02")
+            mockUserDefaults.toDate = dateManager.date(from: "2018-05-04")
+            mockUserDefaults.nationalHolidaySegment = testCase.input.nationalHolidaySegment
+            mockUserDefaults.sortCriteriaSegment = .date
+            mockUserDefaults.paidDaysCount = 1
+            mockUserDefaults.minimumNumberOfHolidays = testCase.input.minimumNumberOfHolidays
 
             viewModel.loadLongWeekend()
 
@@ -137,12 +138,12 @@ class LongWeekendListViewModelTests: XCTestCase {
 
         for testCase in testCases {
             setUp()
-            mockUserDefaults[.fromDate] = dateManager.date(from: testCase.input.from)
-            mockUserDefaults[.toDate] = dateManager.date(from: testCase.input.to)
-            mockUserDefaults[.nationalHolidaySegment] = .undefined
-            mockUserDefaults[.sortCriteriaSegment] = testCase.input.sortCriteriaSegment
-            mockUserDefaults[.paidDaysCount] = 1
-            mockUserDefaults[.minimumNumberOfHolidays] = 3
+            mockUserDefaults.fromDate = dateManager.date(from: testCase.input.from)
+            mockUserDefaults.toDate = dateManager.date(from: testCase.input.to)
+            mockUserDefaults.nationalHolidaySegment = .undefined
+            mockUserDefaults.sortCriteriaSegment = testCase.input.sortCriteriaSegment
+            mockUserDefaults.paidDaysCount = 1
+            mockUserDefaults.minimumNumberOfHolidays = 3
             viewModel.loadLongWeekend()
 
             for (output, longWeekend) in zip(testCase.output.longWeekends, viewModel.longWeekends) {

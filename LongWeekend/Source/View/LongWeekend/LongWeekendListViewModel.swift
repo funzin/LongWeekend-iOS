@@ -8,6 +8,7 @@
 import Combine
 import Foundation
 import SwiftUI
+import SwiftyUserDefaults
 
 final class LongWeekendListViewModel: ObservableObject {
     typealias SaveDataType = (NationalHolidaySegment, SortCriteriaSegment, Int, Int, Date, Date)
@@ -16,20 +17,20 @@ final class LongWeekendListViewModel: ObservableObject {
 
     private let _loadLongWeekends = PassthroughSubject<Void, Never>()
     private var cancellables: [AnyCancellable] = []
-    private let userDefaults: UserDefaultsProtocol
+    private let userDefaults: DefaultsAdapter<DefaultsKeys>
 
-    init(userDefaults: UserDefaultsProtocol = UserDefaults.standard,
+    init(userDefaults: DefaultsAdapter<DefaultsKeys> = Defaults,
          longWeekendCalcurator: LongWeekendCalcurator = LongWeekendCalcurator.shared) {
         self.userDefaults = userDefaults
         do {
             _loadLongWeekends
                 .flatMap { _ -> Just<SaveDataType> in
-                    let nationalHolidaySegment = userDefaults[.nationalHolidaySegment]
-                    let sortCriteriaSegment = userDefaults[.sortCriteriaSegment]
-                    let paidDaysCount = userDefaults[.paidDaysCount]
-                    let minimumNumberOfHolidays = userDefaults[.minimumNumberOfHolidays]
-                    let fromDate = userDefaults[.fromDate]
-                    let toDate = userDefaults[.toDate]
+                    let nationalHolidaySegment = userDefaults.nationalHolidaySegment
+                    let sortCriteriaSegment = userDefaults.sortCriteriaSegment
+                    let paidDaysCount = userDefaults.paidDaysCount
+                    let minimumNumberOfHolidays = userDefaults.minimumNumberOfHolidays
+                    let fromDate = userDefaults.fromDate
+                    let toDate = userDefaults.toDate
                     return Just<SaveDataType>((nationalHolidaySegment, sortCriteriaSegment, paidDaysCount, minimumNumberOfHolidays, fromDate, toDate))
                 }
                 .removeDuplicates { prev, current -> Bool in

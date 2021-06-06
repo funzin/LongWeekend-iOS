@@ -5,16 +5,17 @@
 //  Created by funzin on 2019/10/26.
 //
 
+import SwiftyUserDefaults
 import XCTest
 
 @testable import LongWeekend
 class SettingViewModelTests: XCTestCase {
     var viewModel: SettingViewModel!
-    var mockUserDefaults: MockUserDefautls!
+    var mockUserDefaults: DefaultsAdapter<DefaultsKeys>!
     var dateManager: DateManager!
 
     override func setUp() {
-        mockUserDefaults = MockUserDefautls()
+        mockUserDefaults = DefaultsAdapter<DefaultsKeys>(defaults: UserDefaults(suiteName: "SettingViewModelTests")!, keyStore: .init())
         viewModel = SettingViewModel(userDefaults: mockUserDefaults)
         dateManager = DateManager(formatter: DateManager.Formatter.holidayJpformatter)
     }
@@ -29,12 +30,12 @@ class SettingViewModelTests: XCTestCase {
         let paidDaysCount = 4
         let minimumNumberOfHolidays = 5
 
-        mockUserDefaults[.fromDate] = fromDate
-        mockUserDefaults[.toDate] = toDate
-        mockUserDefaults[.nationalHolidaySegment] = nationalHolidaySegment
-        mockUserDefaults[.sortCriteriaSegment] = sortCriteriaSegment
-        mockUserDefaults[.paidDaysCount] = paidDaysCount
-        mockUserDefaults[.minimumNumberOfHolidays] = minimumNumberOfHolidays
+        mockUserDefaults.fromDate = fromDate
+        mockUserDefaults.toDate = toDate
+        mockUserDefaults.nationalHolidaySegment = nationalHolidaySegment
+        mockUserDefaults.sortCriteriaSegment = sortCriteriaSegment
+        mockUserDefaults.paidDaysCount = paidDaysCount
+        mockUserDefaults.minimumNumberOfHolidays = minimumNumberOfHolidays
 
         viewModel = SettingViewModel(userDefaults: mockUserDefaults)
 
@@ -62,10 +63,10 @@ class SettingViewModelTests: XCTestCase {
 
         viewModel.save()
 
-        XCTAssertEqual(mockUserDefaults[.fromDate], fromDate)
-        XCTAssertEqual(mockUserDefaults[.toDate], toDate)
-        XCTAssertEqual(mockUserDefaults[.nationalHolidaySegment], nationalHolidaySegment)
-        XCTAssertEqual(mockUserDefaults[.sortCriteriaSegment], sortCriteriaSegment)
-        XCTAssertEqual(mockUserDefaults[.minimumNumberOfHolidays], minimumNumberOfHolidays)
+        XCTAssertEqual(mockUserDefaults.fromDate, fromDate)
+        XCTAssertEqual(mockUserDefaults.toDate, toDate)
+        XCTAssertEqual(mockUserDefaults.nationalHolidaySegment, nationalHolidaySegment)
+        XCTAssertEqual(mockUserDefaults.sortCriteriaSegment, sortCriteriaSegment)
+        XCTAssertEqual(mockUserDefaults.minimumNumberOfHolidays, minimumNumberOfHolidays)
     }
 }
