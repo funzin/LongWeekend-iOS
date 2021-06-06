@@ -1,0 +1,17 @@
+# disable
+--disable wrapMultilineStatementBraces
+
+# format options
+--stripunusedargs closure-only
+--self init-only
+--commas inline
+--extensionacl on-declarations
+
+# file options
+--exclude \
+Pods,\
+CLI,\
+.spm
+
+# version
+--swiftversion 5
