@@ -1,6 +1,8 @@
 name: LongWeekend
 options:
   bundleIdPrefix: com.funzin
+  minimumXcodeGenVersion: 2.23.1
+  postGenCommand: make install-pod
   deploymentTarget:
     iOS: 13.0
 targets:
@@ -14,20 +16,18 @@ targets:
         CODE_SIGN_STYLE: Manual
     prebuildScripts:
       - name: Run SwiftGen
-        script: |
-                ${PODS_ROOT}/SwiftGen/bin/swiftgen
+        script: make swiftgen
       - name: Run SwiftLint
-        script: ${PODS_ROOT}/SwiftLint/swiftlint
+        script: make swiftlint
       - name: Run LicensPlist
         script: |
                 if [ $CONFIGURATION = "Debug" ]; then
-                  ${PODS_ROOT}/LicensePlist/license-plist --output-path LongWeekend/Resource/Settings.bundle --prefix com.funzin.longweekend
+                  make license-plist
                 fi
       - name: Configure Admob
         script: |
                 plistBuddy="/usr/libexec/PlistBuddy"
                 Resource="${SRCROOT}/LongWeekend/Resource/"
-                infoPlistFileSource="${Resoruce}/${INFOPLIST_FILE}"
                 infoPlistFileDestination="${TEMP_DIR}/Preprocessed-Info.plist"
                 
                 envPath="${SRCROOT}/.env"

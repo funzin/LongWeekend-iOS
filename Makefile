@@ -1,3 +1,4 @@
+SDKROOT=macosx
 envFile="$(shell ls -a | grep .env)"
 
 ifeq ("$(shell echo ${envFile})" , "$(shell echo .env)")
@@ -20,6 +21,15 @@ install-gems:
 	rm -rf vendor/
 	gem install -N bundler
 	bundle install
+
+swiftgen:
+	swift run --package-path CLI/_swiftgen -c release swiftgen
+
+swiftlint:
+	swift run --package-path CLI/_swiftlint -c release swiftlint
+
+license-plist:
+	swift run --package-path CLI/_license_plist -c release license-plist --output-path LongWeekend/Resource/Settings.bundle --prefix com.funzin.longweekend
 
 xcodegen:
 	swift run --package-path CLI/_xcodegen -c release xcodegen 

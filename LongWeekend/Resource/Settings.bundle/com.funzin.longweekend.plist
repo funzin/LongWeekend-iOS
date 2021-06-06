@@ -92,6 +92,14 @@
 		</dict>
 		<dict>
 			<key>File</key>
+			<string>com.funzin.longweekend/GoogleUserMessagingPlatform</string>
+			<key>Title</key>
+			<string>GoogleUserMessagingPlatform</string>
+			<key>Type</key>
+			<string>PSChildPaneSpecifier</string>
+		</dict>
+		<dict>
+			<key>File</key>
 			<string>com.funzin.longweekend/GoogleUtilities</string>
 			<key>Title</key>
 			<string>GoogleUtilities</string>
@@ -116,14 +124,6 @@
 		</dict>
 		<dict>
 			<key>File</key>
-			<string>com.funzin.longweekend/LicensePlist</string>
-			<key>Title</key>
-			<string>LicensePlist</string>
-			<key>Type</key>
-			<string>PSChildPaneSpecifier</string>
-		</dict>
-		<dict>
-			<key>File</key>
 			<string>com.funzin.longweekend/nanopb</string>
 			<key>Title</key>
 			<string>nanopb</string>
@@ -132,17 +132,9 @@
 		</dict>
 		<dict>
 			<key>File</key>
-			<string>com.funzin.longweekend/SwiftGen</string>
+			<string>com.funzin.longweekend/PromisesObjC</string>
 			<key>Title</key>
-			<string>SwiftGen</string>
-			<key>Type</key>
-			<string>PSChildPaneSpecifier</string>
-		</dict>
-		<dict>
-			<key>File</key>
-			<string>com.funzin.longweekend/SwiftLint</string>
-			<key>Title</key>
-			<string>SwiftLint</string>
+			<string>PromisesObjC</string>
 			<key>Type</key>
 			<string>PSChildPaneSpecifier</string>
 		</dict>

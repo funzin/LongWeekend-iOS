@@ -34,8 +34,8 @@
 
 ## Requirements
 - Swift5 or greater
-- Xcode11.1 or greater
-- [XcodeGen](https://github.com/yonaskolb/XcodeGen) 2.8.0 or greater
+- Xcode12.5 or greater
+- [XcodeGen](https://github.com/yonaskolb/XcodeGen) 2.23.1 or greater
 
 ## Getting Start
 1. If you haven't installed xcodegen yet, please install [XcodeGen](https://github.com/yonaskolb/XcodeGen)

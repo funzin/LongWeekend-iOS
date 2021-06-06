@@ -2,5 +2,5 @@ strings:
   inputs: 
   - LongWeekend/Resource/Localizable/en.lproj/Localizable.strings
   outputs:
-    templateName: structured-swift4
-    output: LongWeekend/Source/Generated/Strings.swift
+    - templatePath: ./CLI/_swiftgen/.build/checkouts/SwiftGen/templates/strings/structured-swift5.stencil
+      output: LongWeekend/Source/Generated/Strings.swift
