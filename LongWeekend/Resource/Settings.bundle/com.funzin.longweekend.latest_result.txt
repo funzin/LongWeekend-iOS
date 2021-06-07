@@ -44,7 +44,7 @@ name: grpc-SwiftPM, nameSpecified: gRPC, owner: firebase, version: 1.28.4
 
 name: gtm-session-fetcher, nameSpecified: GTMSessionFetcher, owner: google, version: 1.5.0
 
-name: holiday_jp-swift, nameSpecified: HolidayJp, owner: holiday-jp, version: 0.2.1
+name: holiday_jp-swift, nameSpecified: HolidayJp, owner: funzin, version: 
 
 name: leveldb, nameSpecified: leveldb, owner: firebase, version: 1.22.2
 
