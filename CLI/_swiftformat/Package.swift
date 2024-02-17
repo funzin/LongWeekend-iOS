@@ -5,7 +5,7 @@ import PackageDescription
 let package = Package(
     name: "_swiftformat",
     dependencies: [
-        .package(url: "https://github.com/nicklockwood/SwiftFormat", .exact("0.48.4"))
+        .package(url: "https://github.com/nicklockwood/SwiftFormat", .exact("0.53.2"))
     ]
 )
 
