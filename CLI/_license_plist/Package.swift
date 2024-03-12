@@ -5,6 +5,6 @@ import PackageDescription
 let package = Package(
     name: "_licesnse_plist",
     dependencies: [
-        .package(url: "https://github.com/mono0926/LicensePlist", .exact("3.13.0"))
+        .package(url: "https://github.com/mono0926/LicensePlist", .exact("3.25.1"))
     ]
 )
