@@ -5,6 +5,6 @@ import PackageDescription
 let package = Package(
     name: "_xcodegen",
     dependencies: [
-        .package(url: "https://github.com/yonaskolb/xcodegen", .exact("2.23.1"))
+        .package(url: "https://github.com/yonaskolb/xcodegen", .exact("2.42.0"))
     ]
 )
