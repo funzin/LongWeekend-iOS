@@ -12,7 +12,7 @@ target 'LongWeekend' do
   use_frameworks!
 
   # Pods for LongWeekend
-  pod 'Google-Mobile-Ads-SDK', '8.5.0'
+  pod 'Google-Mobile-Ads-SDK', '11.11.0'
 
   target 'LongWeekendTests' do
     inherit! :search_paths
